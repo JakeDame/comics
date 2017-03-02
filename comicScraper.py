@@ -8,11 +8,10 @@ print(page.status_code)
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(page.content, 'html.parser')
 print(soup.prettify())
-print("LIST:\n")
 
-#print(list(soup.children))
-html = list(soup.children)
-counter = 0
-for item in html
-  print("%s [%d]", item, counter)
-  counter++
+print("FIND SOME SHIT")
+publishers = []
+for item in soup.find_all('a'):
+  if(item.get_text() == "All Publishers")
+    counter = 0
+    
