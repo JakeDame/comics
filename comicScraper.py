@@ -1,4 +1,5 @@
 import requests
+import urllib.request
 site = "http://comics.gocollect.com/new/this/week" 
 page = requests.get(site)
 
@@ -22,19 +23,21 @@ for item in soup.find_all('a'):
 #Grabs the last instance of All Publishers, so pop it off
 publishers.pop()
 
-print("SHOULD BE MARVEL")
+#print("SHOULD BE MARVEL")
 newSite = site +'/' + publishers[0]
-print(newSite)
+#print(newSite)
 newPage = requests.get(newSite)
-print(newPage.status_code)
+#print(newPage.status_code)
 newSoup = BeautifulSoup(newPage.content, 'html.parser')
 
 #comicsList= newSoup.find("div", {"id": "new-comics-cont"}).find('ul')
 comicsList= newSoup.find_all("li", {"class": "comic"})
-print("comicsList Size = %s" % (len(comicsList)))
+#print("comicsList Size = %s" % (len(comicsList)))
 
 for item in comicsList:
-  print(item.a.get_text())
+  imgName = item.strong.get_text() + '.png'
+  imgUrl = item.img['src']
+  urllib.request.urlretrieve(imgUrl, imgName)
 
 
 """
