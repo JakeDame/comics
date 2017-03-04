@@ -29,13 +29,17 @@ newPage = requests.get(newSite)
 print(newPage.status_code)
 newSoup = BeautifulSoup(newPage.content, 'html.parser')
 
-for item in newSoup.p['class']:
-  print(item.get_text())
+#comicsList= newSoup.find("div", {"id": "new-comics-cont"}).find('ul')
+comicsList= newSoup.find_all("li", {"class": "comic"})
+print("comicsList Size = %s" % (len(comicsList)))
+
+for item in comicsList:
+  print(item.a.get_text())
 
 
 """
 for pub in publishers:
-  newSite = site + pub
+  newSite = site + '/' + pub
   newPage = requests.get(newSite)
   print(page.status_code)
 """
