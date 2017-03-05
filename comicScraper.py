@@ -1,5 +1,7 @@
 #Currently Designed for Local Development and use
 # --> Need to change directory paths once pushed onto aws server
+# --> Todo: Change URL to match how website uses publisher names
+#           (ex: Dark Horse Comic -> dark-horse)
 import requests
 import urllib.request
 import os
@@ -28,23 +30,28 @@ publishers.pop()
 #Start of Publishers for loop <-- Design purposes until implemented
 for pub in publishers:
   newSite = site +'/' + pub
+  print(newSite)
   newPage = requests.get(newSite)
   print("%s %s" % (pub, newPage.status_code))
   newSoup = BeautifulSoup(newPage.content, 'html.parser')
   
   comicsList= newSoup.find_all("li", {"class": "comic"})
-  #print("comicsList Size = %s" % (len(comicsList)))
+  print("comicsList Size = %s" % (len(comicsList)))
 
   for item in comicsList:
+    print(item)
+  """
     imgName = item.strong.get_text() + '.png'
     dirName = os.path.dirname(__file__)
     dirPath = os.path.join(dirName, "covers")
     dirPathFinal = os.path.join(dirPath, pub.replace(' ', ''))
     fullName = os.path.join(dirPathFinal, imgName)
+    print(fullName)
     imgUrl = item.img['src']
     if "no-image" not in imgUrl:
       continue
-    else
+    else:
       urllib.request.urlretrieve(imgUrl, fullName)
+  """
 
 #End loop
