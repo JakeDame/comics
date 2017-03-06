@@ -15,43 +15,36 @@ from bs4 import BeautifulSoup
 soup = BeautifulSoup(page.content, 'html.parser')
 
 #Create publisher array and set fillList flag to False
-publishers = []
-fillList = False
-for item in soup.find_all('a'):
+findPub = soup.find_all('a', {'class' : 'new_publisher'});
+publisherUrl = []
+fillList = True
+counter = 0
+for item in findPub:
+  if(counter == 10): #only want the top 10 publishers
+    fillList = False
   if(fillList == True):
-    publishers.append(item.get_text())
-  if(item.get_text() == "All Publishers"):
-    fillList = not fillList
-
-#Grabs the last instance of All Publishers, so pop it off
-publishers.pop()
-
+    publisherUrl.append(item['href'])
+    counter += 1
 
 #Start of Publishers for loop <-- Design purposes until implemented
-for pub in publishers:
-  newSite = site +'/' + pub
-  print(newSite)
+for pub in publisherUrl:
+  newSite = pub
   newPage = requests.get(newSite)
-  print("%s %s" % (pub, newPage.status_code))
+  #print("%s %s" % (newSite, newPage.status_code))
   newSoup = BeautifulSoup(newPage.content, 'html.parser')
   
   comicsList= newSoup.find_all("li", {"class": "comic"})
-  print("comicsList Size = %s" % (len(comicsList)))
+  #print("comicsList Size = %s" % (len(comicsList)))
 
   for item in comicsList:
-    print(item)
-  """
+    #print(item)
     imgName = item.strong.get_text() + '.png'
     dirName = os.path.dirname(__file__)
-    dirPath = os.path.join(dirName, "covers")
-    dirPathFinal = os.path.join(dirPath, pub.replace(' ', ''))
+    dirPath = os.path.join(dirName, "app/public/images/covers")
+    dirPathFinal = os.path.join(dirPath, pub.split('/', 6)[6])
     fullName = os.path.join(dirPathFinal, imgName)
     print(fullName)
     imgUrl = item.img['src']
-    if "no-image" not in imgUrl:
-      continue
-    else:
-      urllib.request.urlretrieve(imgUrl, fullName)
-  """
+    urllib.request.urlretrieve(imgUrl, fullName)
 
 #End loop
