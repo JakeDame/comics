@@ -3,6 +3,7 @@ var app = express();
 
 app.set('port', process.env.PORT || 3000);
 
+app.use(express.static('app/public'));
 app.use(require('./routes/index'));
 
 var server = app.listen(app.get('port'), function() {
