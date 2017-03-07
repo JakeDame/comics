@@ -3,9 +3,11 @@ var router = express.Router();
 
 
 router.get('/', function(req, res) {
-  res.send(`
-    <h1>This Week in Comics</h1>
-  `);
+  res.render('index', {
+    pageTitle: 'Home',
+    pageID: 'home'
+  });
+
 });
 
 module.exports = router;
