@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon -e css,ejs,js,json --watch app app/server.js"
+    "start": "node app/server.js"
   },
   "repository": {
     "type": "git",
