@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>This Week in Comics --<%= pageTitle %></title>
+    <title>This Week in Comics - <%= pageTitle %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
   </head>
 
-  <body>
+  <body id="<%= pageID %>">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -24,7 +24,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Publisher</a></li>
+            <li><a href="#">Publishers</a></li>
             <li><a href="#">Message Boards</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -36,6 +36,14 @@
         <h1>This Week in Comics</h1>
       </div>
     </div><!-- /.container-fluid --> 
+
+    <div class="covers">
+      <% if (coverArt.length > 0) { %>
+      <% for(i=0; i < coverArt.length; i++) { %>
+        <img src="/images/covers/<%= coverArt[i] %>" alt="<%= title[i] %>" />
+      <% } %>
+      <% } %>
+    </div>
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>

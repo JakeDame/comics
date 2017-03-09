@@ -15,7 +15,6 @@ with open(dataDirPath, 'w') as f:
 
 site = "http://comics.gocollect.com/new/this/week" 
 page = requests.get(site)
-#print(page.status_code)
 soup = BeautifulSoup(page.content, 'html.parser')
 
 #Create publisherUrl array, counter to ensure only the top 10 publishers are grabbed, and set fillList flag to False
@@ -45,7 +44,6 @@ for pub in publisherUrl:
   #Access the new website
   newSite = pub
   newPage = requests.get(newSite)
-  #print("%s %s" % (newSite, newPage.status_code))
   newSoup = BeautifulSoup(newPage.content, 'html.parser')
 
   #Start to get data to fill dictionary with
@@ -66,12 +64,13 @@ for pub in publisherUrl:
   
   #Get list of comics displayed on newSite
   comicsList= newSoup.find_all("li", {"class": "comic"})
-  #print("comicsList Size = %s" % (len(comicsList)))
 
   for item in comicsList:
     title = item.strong.get_text()
     comicDict['Title'] = title
-    imgName = title + '.png'
+    imgName = title.split('#')
+    imgName = ''.join(imgName)
+    imgName = imgName + '.png'
     imgName = imgName.split(' ')
     imgName = '_'.join(imgName)
     imgName = imgName.lower()
@@ -85,7 +84,6 @@ for pub in publisherUrl:
     dirPath = os.path.join(dirName, "app/public/images/covers")
     dirPathFinal = os.path.join(dirPath, pub.split('/', 6)[6])
     fullName = os.path.join(dirPathFinal, imgName)
-    #print(fullName)
     imgUrl = item.img['src']
     urllib.request.urlretrieve(imgUrl, fullName)
 #End loop

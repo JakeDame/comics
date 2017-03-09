@@ -5,3 +5,9 @@ body{
   padding: 40px 15px;
   text-align: center;
 }
+img {
+  margin: auto;
+  padding: 5px;
+  height: 300px;
+  width: 200px;
+}
