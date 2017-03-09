@@ -1,0 +1,637 @@
+{ "comics":[{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Man-thing #1",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "man-thing_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Guardians Of Galaxy #1.mu",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "guardians_of_galaxy_#1.mu.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Ivx #6",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "ivx_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Captain America Steve Rogers #13",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "captain_america_steve_rogers_#13.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Uncanny Avengers #21",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "uncanny_avengers_#21.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Spider-man #14",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "spider-man_#14.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Mosaic #6",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "mosaic_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Kingpin #2",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "kingpin_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Jessica Jones #6",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "jessica_jones_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Power Man And Iron Fist #14",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "power_man_and_iron_fist_#14.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Unbeatable Squirrel Girl #18",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "unbeatable_squirrel_girl_#18.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Gwenpool #13",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "gwenpool_#13.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Doctor Strange Sorcerers Supreme #6",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "doctor_strange_sorcerers_supreme_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Nova #4",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "nova_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Spider-man Deadpool #15",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "spider-man_deadpool_#15.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "All New Wolverine #18",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "all_new_wolverine_#18.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Old Man Logan #19",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "old_man_logan_#19.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Star Wars Doctor Aphra #5",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "star_wars_doctor_aphra_#5.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Now Silver Surfer #9",
+   "Folder": "marvel",
+   "Publisher": "Marvel",
+   "Cover": "now_silver_surfer_#9.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Mother Panic #4",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "mother_panic_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Action Comics #975",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "action_comics_#975.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "All Star Batman #8",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "all_star_batman_#8.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Batgirl And The Birds Of Prey #8",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "batgirl_and_the_birds_of_prey_#8.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Deathstroke #14",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "deathstroke_#14.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Detective Comics #952",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "detective_comics_#952.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Flash #18",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "flash_#18.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Hal Jordan And The Green Lantern Corps #16",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "hal_jordan_and_the_green_lantern_corps_#16.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "New Super Man #9",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "new_super_man_#9.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Justice League Of America #2",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "justice_league_of_america_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Red Hood And The Outlaws #8",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "red_hood_and_the_outlaws_#8.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Suicide Squad #13",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "suicide_squad_#13.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Supergirl #7",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "supergirl_#7.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Superwoman #8",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "superwoman_#8.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Titans #9",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "titans_#9.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Wonder Woman #18",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "wonder_woman_#18.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Scooby Apocalypse #11",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "scooby_apocalypse_#11.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Earth 2 Society #22",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "earth_2_society_#22.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Gotham Academy Second Semester #7",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "gotham_academy_second_semester_#7.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Justice League Power Rangers #3",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "justice_league_power_rangers_#3.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Lost Boys #6",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "lost_boys_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Astro City #42",
+   "Folder": "dc",
+   "Publisher": "DC",
+   "Cover": "astro_city_#42.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Hellboy And B.P.R.D. 1954 Ghost Moon #1",
+   "Folder": "dark-horse",
+   "Publisher": "Dark Horse",
+   "Cover": "hellboy_and_b.p.r.d._1954_ghost_moon_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Shadows On The Grave #3",
+   "Folder": "dark-horse",
+   "Publisher": "Dark Horse",
+   "Cover": "shadows_on_the_grave_#3.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Harrow County #21",
+   "Folder": "dark-horse",
+   "Publisher": "Dark Horse",
+   "Cover": "harrow_county_#21.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Empowered Soldier Of Love #2",
+   "Folder": "dark-horse",
+   "Publisher": "Dark Horse",
+   "Cover": "empowered_soldier_of_love_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Lady Killer 2 #4",
+   "Folder": "dark-horse",
+   "Publisher": "Dark Horse",
+   "Cover": "lady_killer_2_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Copperhead #11",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "copperhead_#11.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Low #16",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "low_#16.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Birthright #23",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "birthright_#23.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Green Valley #6",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "green_valley_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Motor Crush #4",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "motor_crush_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Planetoid Praxis #2",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "planetoid_praxis_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Throwaways #6",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "throwaways_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Wicked & Divine #27",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "wicked_&_divine_#27.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Elephantmen #75",
+   "Folder": "image",
+   "Publisher": "Image",
+   "Cover": "elephantmen_#75.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Transformers Annual 2017 #1",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "transformers_annual_2017_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "My Little Pony Deviations #1",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "my_little_pony_deviations_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Judge Dredd Deviations #1",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "judge_dredd_deviations_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Judge Dredd Cry Of The Werewolf #1",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "judge_dredd_cry_of_the_werewolf_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Tranformers Vs G.I. Joe Movie Adaptation #1",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "tranformers_vs_g.i._joe_movie_adaptation_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Brutal Nature Concrete Fury #1",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "brutal_nature_concrete_fury_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Comic Book History Of Comics #4",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "comic_book_history_of_comics_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "D4veocracy #2",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "d4veocracy_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Micronauts #10",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "micronauts_#10.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Back To The Future Biff To The Future #2",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "back_to_the_future_biff_to_the_future_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "X-files (2016) #12",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "x-files_(2016)_#12.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Tmnt Universe #8",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "tmnt_universe_#8.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Star Trek Boldly Go #6",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "star_trek_boldly_go_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Star Trek Waypoint #4",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "star_trek_waypoint_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Dirk Gently Salmon Of Doubt #6",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "dirk_gently_salmon_of_doubt_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Box Office Poison Color Comics #3",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "box_office_poison_color_comics_#3.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Jem & The Holograms #25",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "jem_&_the_holograms_#25.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Mickey Mouse #18",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "mickey_mouse_#18.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Popeye Classics Ongoing #56",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "popeye_classics_ongoing_#56.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Rom #7",
+   "Folder": "idw",
+   "Publisher": "IDW",
+   "Cover": "rom_#7.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Uber Invasion #4",
+   "Folder": "avatar-press",
+   "Publisher": "Avatar Press",
+   "Cover": "uber_invasion_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Grass Kings #1",
+   "Folder": "boom-studios",
+   "Publisher": "Boom Studios",
+   "Cover": "grass_kings_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Planet Of Apes Green Lantern #2",
+   "Folder": "boom-studios",
+   "Publisher": "Boom Studios",
+   "Cover": "planet_of_apes_green_lantern_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Sons Of Anarchy Redwood Original #8",
+   "Folder": "boom-studios",
+   "Publisher": "Boom Studios",
+   "Cover": "sons_of_anarchy_redwood_original_#8.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Jim Henson Storyteller Giants #4",
+   "Folder": "boom-studios",
+   "Publisher": "Boom Studios",
+   "Cover": "jim_henson_storyteller_giants_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Jonesy #11",
+   "Folder": "boom-studios",
+   "Publisher": "Boom Studios",
+   "Cover": "jonesy_#11.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Steven Universe Ongoing #2",
+   "Folder": "boom-studios",
+   "Publisher": "Boom Studios",
+   "Cover": "steven_universe_ongoing_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Mega Princess #5",
+   "Folder": "boom-studios",
+   "Publisher": "Boom Studios",
+   "Cover": "mega_princess_#5.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Charmed #1",
+   "Folder": "dynamite",
+   "Publisher": "Dynamite",
+   "Cover": "charmed_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Nancy Drew Hardy Boys #1",
+   "Folder": "dynamite",
+   "Publisher": "Dynamite",
+   "Cover": "nancy_drew_hardy_boys_#1.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Army Of Darkness Xena Forever And A Day #6",
+   "Folder": "dynamite",
+   "Publisher": "Dynamite",
+   "Cover": "army_of_darkness_xena_forever_and_a_day_#6.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "John Carter The End #2",
+   "Folder": "dynamite",
+   "Publisher": "Dynamite",
+   "Cover": "john_carter_the_end_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "GFT Day Of The Dead #2",
+   "Folder": "zenescope-entertainment",
+   "Publisher": "Zenescope Entertainment",
+   "Cover": "gft_day_of_the_dead_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "GFT Grimm Tales Of Terror Vol 3 #2",
+   "Folder": "zenescope-entertainment",
+   "Publisher": "Zenescope Entertainment",
+   "Cover": "gft_grimm_tales_of_terror_vol_3_#2.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Hellchild The Unholy #4",
+   "Folder": "zenescope-entertainment",
+   "Publisher": "Zenescope Entertainment",
+   "Cover": "hellchild_the_unholy_#4.png"
+},
+{
+   "ReleaseDate": "2017-03-08",
+   "Title": "Grimm Fairy Tales #4",
+   "Folder": "zenescope-entertainment",
+   "Publisher": "Zenescope Entertainment",
+   "Cover": "grimm_fairy_tales_#4.png"
+}]}
