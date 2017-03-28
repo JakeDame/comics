@@ -5,6 +5,9 @@
 import requests, urllib.request, os, datetime, json
 from isoweek import Week
 from bs4 import BeautifulSoup
+from pymongo import MongoClient
+
+client = MongoClient()
 
 #create dictionary to store data to send to the database
 comicDict = {}
