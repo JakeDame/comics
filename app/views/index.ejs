@@ -38,11 +38,12 @@
     </div><!-- /.container-fluid --> 
 
     <div class="covers">
-      <% if (coverArt.length > 0) { %>
-      <% for(i=0; i < coverArt.length; i++) { %>
-        <img src="/images/covers/<%= coverArt[i] %>" alt="<%= title[i] %>" />
-      <% } %>
-      <% } %>
+      <!-- Commented out until database is used to grab data-->
+      <%# if (coverArt.length > 0) { %>
+      <%# for(i=0; i < coverArt.length; i++) { %>
+        <!-- img src="/images/covers/<%#= coverArt[i] %>" alt="<%#= title[i] %>" /-->
+      <%# } %>
+      <%# } %>
     </div>
 
     <script src="/js/jquery.min.js"></script>
