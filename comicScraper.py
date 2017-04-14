@@ -1,20 +1,16 @@
-#Currently Designed for Local Development and use
-# --> Need to change directory paths once pushed onto aws server
-
 #imports
-import requests, urllib.request, os, datetime, json
+import requests, urllib.request, os, datetime
 from isoweek import Week
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
 
-client = MongoClient()
+uri = "mongodb://admin:admin123@localhost:27017/comics?authSource=admin"
+client = MongoClient(uri)
+db = client['comics']
+books = db['comicBooks']
 
 #create dictionary to store data to send to the database
 comicDict = {}
-dataDirName = os.path.dirname(__file__)
-dataDirPath = os.path.join(dataDirName, "app/data/comicData.json")
-with open(dataDirPath, 'w') as f:
-  f.write("{ \"comics\":[")
 
 site = "http://comics.gocollect.com/new/this/week" 
 page = requests.get(site)
@@ -42,7 +38,7 @@ releaseDate = Week(now.year, weekNum).wednesday()
 releaseDate = str(releaseDate)
 comicDict['ReleaseDate'] = releaseDate
 
-#Start of Publishers for loop <-- Design purposes until implemented
+#Start of Publishers for loop
 for pub in publisherUrl:
   #Access the new website
   newSite = pub
@@ -79,24 +75,17 @@ for pub in publisherUrl:
     imgName = imgName.lower()
     comicDict['Cover'] = imgName 
 
-    with open(dataDirPath, 'a') as f:
-      json.dump(comicDict, f, indent=3)
-      f.write(',\n')
-
     dirName = os.path.dirname(__file__)
     dirPath = os.path.join(dirName, "app/public/images/covers")
     dirPathFinal = os.path.join(dirPath, pub.split('/', 6)[6])
     fullName = os.path.join(dirPathFinal, imgName)
     imgUrl = item.img['src']
-    urllib.request.urlretrieve(imgUrl, fullName)
+
+    #Dont want to download duplicate covers or add duplicate documents
+    if(books.find({"Cover": imgName}).count() < 1):
+      #if there's no image from the website
+      if(imgUrl.find('no-item-image') == -1):
+        urllib.request.urlretrieve(imgUrl, fullName)
+      books.insert(comicDict.copy())
+
 #End loop
-
-#Finish up the proper json formatting by removing extra , and newline, then
-#add the finishing brackets
-with open(dataDirPath, 'rb+') as f:
-  f.seek(-2, os.SEEK_END)
-  f.truncate()
-with open(dataDirPath, 'a') as f:
-  f.write("]}")
-
-
