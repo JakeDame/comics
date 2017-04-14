@@ -41,3 +41,6 @@ jspm_packages
 *.jpeg
 *.png
 *.gif
+
+#swap files
+*.swp
