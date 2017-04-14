@@ -22,24 +22,33 @@ module.exports = function(app, passport) {
     });
   });
 
-  //Login
+  // Login
   app.get('/login', function(req, res) {
     res.render('login.ejs', {message: req.flash('loginMessage') });
   });
 
   //process the login form
-  // app.post('/login', do passport stuff);
+  app.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/profile', 
+    failureRedirect : '/login',
+    failureFlash : true
+  }));
 
+  // Signup
   app.get('/signup', function(req, res) {
     res.render('signup.ejs', { message: req.flash('signupMessage') });
   });
 
   //process the signup form
-  // app.post('/signup', do passport stuff);
+  app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect : '/profile', 
+    failureRedirect : '/signup',
+    failureFlash : true
+  }));
 
   //Profile
   app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile,ejs', {
+    res.render('profile.ejs', {
       user : req.user // get the user out of session and pass to template
     });
   });
