@@ -4,8 +4,23 @@ module.exports = function(app, passport) {
   app.get('/', function(req, res) {
     //Data now in database, not json file, NEED to fix after users
     var data = req.app.get('comicData');
+    var thisWeek = [];
     var pagePhotos = [];
     var comicTitles = [];
+
+    data.find({'ReleaseDate': '2017-04-19'}, function(err,data) {
+      for(var i = 0; i < data.length; i++){
+        console.log(data[i].Title);
+        thisWeek.push(data[i].Title);
+      }
+    });
+
+
+/*
+    thisWeek.forEach(function(item){
+      console.log(err, item);
+    });
+    */
 
     /*
     data.comics.forEach(function(item) {
@@ -20,6 +35,15 @@ module.exports = function(app, passport) {
       title: comicTitles,
       pageID: 'home'
     });
+
+    console.log("DATA SIZE");
+    console.log(thisWeek.length);
+    console.log("DATA SIZE");
+    console.log(thisWeek.length);
+    console.log("DATA SIZE");
+    console.log(thisWeek.length);
+    console.log("DATA SIZE");
+    console.log(thisWeek.length);
   });
 
   // Login

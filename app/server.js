@@ -39,7 +39,8 @@ app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 
 //Used to give data to views and routes, no longer used
-//app.set('comicData', comicData);
+//Currently testing if can be used after accessing mongo <- nope
+app.set('comicData', comicData);
 
 //required for passport
 app.use(session({ secret: 'shenanigans' }));
@@ -57,3 +58,4 @@ require('./routes.js')(app, passport);
 var server = app.listen(app.get('port'), function() {
   console.log('Listening on port ' + app.get('port'));
 });
+
