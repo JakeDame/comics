@@ -1,52 +1,47 @@
 module.exports = function(app, passport) {
 
-  //Home Page
+  //Get this week's wednesday for query
+  //Probably bad form, but I just need my data
+  var ReleaseDate;
+  var exec = require("child_process").exec, child;
+    
+  child = exec("python3 thisWeek.py", 
+    function(error, stdout, stderr) {
+      ReleaseDate = stdout;
+      ReleaseDate = ReleaseDate.substring(0,ReleaseDate.length-1);
+    });
+
+
+  /////////////
+  //Home Page//
+  /////////////
   app.get('/', function(req, res) {
+
+
     //Data now in database, not json file, NEED to fix after users
     var data = req.app.get('comicData');
-    var thisWeek = [];
     var pagePhotos = [];
     var comicTitles = [];
 
-    data.find({'ReleaseDate': '2017-04-19'}, function(err,data) {
+    data.find({'ReleaseDate': ReleaseDate}, function(err,data) {
       for(var i = 0; i < data.length; i++){
-        console.log(data[i].Title);
-        thisWeek.push(data[i].Title);
+        pagePhotos=pagePhotos.concat(data[i].Folder + '/' + data[i].Cover);
+        comicTitles = comicTitles.concat(data[i].Title);
       }
+
+      res.render('index', {
+        pageTitle: 'Home',
+        coverArt: pagePhotos,
+        title: comicTitles,
+        releaseDate: ReleaseDate,
+        pageID: 'home'
+      });
     });
-
-
-/*
-    thisWeek.forEach(function(item){
-      console.log(err, item);
-    });
-    */
-
-    /*
-    data.comics.forEach(function(item) {
-      pagePhotos = pagePhotos.concat(item.folder + '/' + item.Cover);
-      comicTitles = comicTitles.concat(item.Title);
-    });
-    */
-
-    res.render('index', {
-      pageTitle: 'Home',
-      coverArt: pagePhotos,
-      title: comicTitles,
-      pageID: 'home'
-    });
-
-    console.log("DATA SIZE");
-    console.log(thisWeek.length);
-    console.log("DATA SIZE");
-    console.log(thisWeek.length);
-    console.log("DATA SIZE");
-    console.log(thisWeek.length);
-    console.log("DATA SIZE");
-    console.log(thisWeek.length);
   });
 
-  // Login
+  ///////////
+  // Login //
+  ///////////
   app.get('/login', function(req, res) {
     res.render('login.ejs', {message: req.flash('loginMessage') });
   });
