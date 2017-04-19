@@ -14,3 +14,22 @@ img {
 h2 {
   text-align: center;
 }
+h3 {
+  text-align: center;
+}
+.row{
+  text-align: center;
+}
+.container-covers{
+  display: flex;
+  text-align: center;
+  background-color: lightgrey;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+}
+.item-covers{
+  flex-grow: 5;
+  align-self: auto;
+}

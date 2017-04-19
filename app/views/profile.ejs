@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comic - Login</title>
+  <title>Comics - Profile</title>
   <% include partials/head.ejs %>
 </head>
 <body>
@@ -13,7 +13,7 @@
 <div class="container">
   
   <div class="page-header text-center">
-    <h1><span class="fa fa-anchor"></span> Proile Page</h1>
+    <h1><span class="fa fa-anchor"></span> Profile Page</h1>
     <a href="/logout" class="btn btn-default btn-sm">Logout</a>
   </div>
 
@@ -21,14 +21,18 @@
     <!-- LOCAL INFORMATION -->
     <div class="col-sm-6">
       <div class="well">
-        <h3><span class="fa fa-user"></span> Local</h3>
+        <h3>ID: <%= user._id %></h3>
 
           <p>
-            <strong>id</strong>: <%= user._id %><br>
             <strong>email</strong>: <%= user.local.email %><br>
-            <strong>password</strong>: <%= user.local.password %>
+            <!-- <strong>password</strong>: <%= user.local.password %> -->
           </p>
 
+      </div> <!-- end well div -->
+    </div> <!-- end col-sm-6 div -->
+    <div class="col-sm-6">
+      <div class="well">
+        <h3>Collection:</h3>
       </div> <!-- end well div -->
     </div> <!-- end col-sm-6 div -->
   </div> <!-- end row div -->

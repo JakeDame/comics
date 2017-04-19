@@ -34,6 +34,7 @@ module.exports = function(app, passport) {
         coverArt: pagePhotos,
         title: comicTitles,
         releaseDate: ReleaseDate,
+        user: req.user,
         pageID: 'home'
       });
     });
@@ -53,10 +54,14 @@ module.exports = function(app, passport) {
     failureFlash : true
   }));
 
-  // Signup
+
+  ////////////
+  // Signup //
+  ////////////
   app.get('/signup', function(req, res) {
     res.render('signup.ejs', { message: req.flash('signupMessage') });
   });
+
 
   //process the signup form
   app.post('/signup', passport.authenticate('local-signup', {
@@ -65,14 +70,19 @@ module.exports = function(app, passport) {
     failureFlash : true
   }));
 
-  //Profile
+
+  /////////////
+  // Profile //
+  /////////////
   app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile.ejs', {
       user : req.user // get the user out of session and pass to template
     });
   });
 
-  //Logout
+  ////////////
+  // Logout //
+  ////////////
   app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
