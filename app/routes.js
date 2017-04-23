@@ -17,7 +17,6 @@ module.exports = function(app, passport) {
   /////////////
   app.get('/', function(req, res) {
 
-
     //Data now in database, not json file, NEED to fix after users
     var data = req.app.get('comicData');
     var pagePhotos = [];
@@ -29,14 +28,23 @@ module.exports = function(app, passport) {
         comicTitles = comicTitles.concat(data[i].Title);
       }
 
+      if(req.user){
+      res.render('indexLI', {
+        pageTitle: 'Home - logged in',
+        coverArt: pagePhotos,
+        title: comicTitles,
+        releaseDate: ReleaseDate,
+        pageID: 'home'
+      });
+      } else {
       res.render('index', {
         pageTitle: 'Home',
         coverArt: pagePhotos,
         title: comicTitles,
         releaseDate: ReleaseDate,
-        user: req.user,
         pageID: 'home'
       });
+      }
     });
   });
 

@@ -7,7 +7,7 @@
 
   <body id="<%= pageID %>">
     <header>
-      <% include partials/header.ejs %>
+      <% include partials/headerLI.ejs %>
     </header>
 
     <div class="container-fluid">
@@ -17,6 +17,9 @@
       </div>
     </div>
     
+    <!-- Everything below this line needs to be data based
+    on the person logged in
+    i.e. Current collection releases, related interests -->
 
     <div class="col-sm-8" style="background-color: lightgrey">
     <h2>Releasing This Week:</h2>
