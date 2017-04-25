@@ -21,23 +21,58 @@
     <!-- LOCAL INFORMATION -->
     <div class="col-sm-6">
       <div class="well">
-        <h3><%= user.local.username %></h3>
-
+        <h3><%= user.local.username %></h3><hr size=3>
           <p>
             <strong>email</strong>: <%= user.local.email %><br>
-            <!-- <strong>password</strong>: <%= user.local.password %> -->
           </p>
-
       </div> <!-- end well div -->
     </div> <!-- end col-sm-6 div -->
     <div class="col-sm-6">
       <div class="well">
-        <h3>Collection:</h3>
-      </div> <!-- end well div -->
-    </div> <!-- end col-sm-6 div -->
-  </div> <!-- end row div -->
+        <h3>Add To Collection:</h3><hr>
+        <div class="book-submission">
+          <label>Title:</label>
+          <input type="text" name="title">  
+          <label>  Issue Numbers:</label> 
+          <input type="number" class="issue-form" name="issueB" min="0"> to
+          <input type="number" class="issue-form" name="issueE" max="1000">
+          <br>
+          <label>Publisher: </label>
+          <select id="publisher" name ="publisher">
+            <option disabled selected value> -- select an option -- </option>
+            <option value="Avatar Press">Avatar Press</option>
+            <option value="Boom Studios">Boom Studios</option>
+            <option value="Dark Horse">Dark Horse</option>
+            <option value="DC">DC</option>
+            <option value="Dynamite">Dynamite</option>
+            <option value="IDW">IDW</option>
+            <option value="Image">Image</option>
+            <option value="Marvel">Marvel</option>
+            <option value="Zenescope Entertainment">Zenescope Entertainment</option>
+          </select>
+          <label>Ongoing:</label>
+          <input type="radio" name="ongoing" value="Yes"> Yes 
+          <input type="radio" name="ongoing" value="No"> No <br>
+          <label>Writer:(Optional)</label>
+          <input type="text" name="writer"><br>
+          <label>Artist:(Optional)</label>
+          <input type="text" name="artist"><br>  
+          <label>Submit:</label>
+          <input type="submit" value="Submit">
+        </div><!-- end form-group -->
+        
+      </div> <!-- end well -->
+    </div> <!-- end col-sm-6 -->
+  </div> <!-- end row -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+        <h3><%= user.local.username %>'s Collection: </h3>
+      </div>
+    </div>
+  </div>
   
-</div> <!-- end of container div -->
+</div> <!-- end of container -->
 
 
 </body>

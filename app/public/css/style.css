@@ -1,4 +1,5 @@
 body{
+  text-align: center;
   background-color: lightgrey;
   padding-top: 50px;
 }
@@ -11,12 +12,6 @@ img {
   padding: 5px;
   height: 300px;
   width: 200px;
-}
-h2 {
-  text-align: center;
-}
-h3 {
-  text-align: center;
 }
 .row{
   text-align: center;
@@ -33,4 +28,10 @@ h3 {
 .item-covers{
   flex-grow: 5;
   align-self: auto;
+}
+.issue-form {
+  width: 10%;
+}
+.book-submission{
+  text-align: left;
 }
