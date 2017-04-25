@@ -7,6 +7,7 @@ var userSchema = mongoose.Schema({
   // currently only care about local
   local       : {
     email     : String,
+    username  : String,
     password  : String
   }
 
