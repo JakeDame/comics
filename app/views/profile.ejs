@@ -57,7 +57,6 @@
           <input type="text" name="writer"><br>
           <label>Artist:(Optional)</label>
           <input type="text" name="artist"><br>  
-          <label>Submit:</label>
           <input type="submit" value="Submit">
         </div><!-- end form-group -->
         
@@ -68,6 +67,22 @@
     <div class="col-sm-12">
       <div class="well">
         <h3><%= user.local.username %>'s Collection: </h3>
+        <div id="collection">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Issue</th>
+                <th>Publisher</th>
+                <th>Ongoing</th>
+                <th>Writer</th>
+                <th>Artist</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -75,5 +90,8 @@
 </div> <!-- end of container -->
 
 
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/global.js"></script>
 </body>
 </html>

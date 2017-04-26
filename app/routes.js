@@ -96,6 +96,19 @@ module.exports = function(app, passport) {
     res.redirect('/');
   });
 
+  ////////////////////////////
+  // Gather Collection Data //
+  ////////////////////////////
+  /* IDEAS: Collection has an owner, and books, search for the 
+  collection based off of owner user name. Books should be able to 
+  display on collection page based off that query */
+  app.get('/collection', function(req, res) {
+    var collection = require('./models/collection.js');
+    collection.find({},{},function(e, docs){
+      res.json(docs);
+    });
+  });
+
 };
 
 function isLoggedIn(req, res, next) {

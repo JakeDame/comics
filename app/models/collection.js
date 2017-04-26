@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var collectionSchema = mongoose.Schema({
 
   // currently only care about local
-  collection    : {
-    book        : {
+  collections    : {
+    books       : {
       title     : String,
-      issue     : int,
+      issue     : Number,
       publisher : String,
       ongoing   : Boolean,
       writer    : String,
@@ -18,4 +18,4 @@ var collectionSchema = mongoose.Schema({
 });
 
 //create the model for collections and expose it to our app
-module.exports = mongoose.model('Collection', collectionSchema);
+module.exports = mongoose.model('collections', collectionSchema);
