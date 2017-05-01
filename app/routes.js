@@ -70,8 +70,9 @@ module.exports = function(app, passport) {
     res.render('signup.ejs', { message: req.flash('signupMessage') });
   });
 
-
-  //process the signup form
+  /////////////////////////////
+  // process the signup form //
+  /////////////////////////////
   app.post('/signup', passport.authenticate('local-signup', {
     successRedirect : '/profile', 
     failureRedirect : '/signup',
@@ -104,7 +105,12 @@ module.exports = function(app, passport) {
   display on collection page based off that query */
   app.get('/collection', function(req, res) {
     var collection = require('./models/collection.js');
-    collection.find({},{},function(e, docs){
+    collection.find({ "owner" : req.user.local.username})
+    //.populate('books')
+    .exec(function(e, docs){
+      if (e) res.status(500).send(e);
+
+      console.log(docs);
       res.json(docs);
     });
   });

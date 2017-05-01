@@ -15,6 +15,7 @@ var app = express();
 
 
 //configuration
+mongoose.Promise = global.Promise;
 var db = mongoose.connect(configDB.url);
 
 // Get the collection data from Mongodb
@@ -29,31 +30,25 @@ require('./config/passport')(passport); //pass passport for configuration
 // set up express app
 app.use(morgan('dev')); // log every request to console
 app.use(cookieParser()); // read cookies
-app.use(bodyParser()); /// get information from html forms
+app.use(bodyParser.urlencoded({ extended: true })); /// get information from html forms
+app.use(bodyParser.json()); /// get information from html forms
 
 app.set('port', process.env.PORT || 3000); //set port and default port
 app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 
-//Used to give data to views and routes, no longer used
-//Currently testing if can be used after accessing mongo <- nope
+//Used to give data to views and routes
 app.set('comicData', comicData);
 
 //required for passport
-app.use(session({ secret: 'shenanigans' }));
+app.use(session({ secret: 'shenanigans',
+                  resave: true,
+                  saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); //use connect-flash for flash messages stored in session
 
 app.use(express.static('app/public'));
-
-/*
-// Make db accessible to app
-app.use(function(req, res, next){
-  req.db = db;
-  next();
-});
-*/
 
 //routes
 require('./routes.js')(app, passport); 

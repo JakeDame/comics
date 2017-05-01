@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>This Week in Comics - <%= pageTitle %></title>
+    <title>ComMix - <%= pageTitle %></title>
     <% include partials/head.ejs %>
+    <link rel="stylesheet" href="/css/magnific-popup.css">
   </head>
 
   <body id="<%= pageID %>">
@@ -24,8 +25,15 @@
       <% if (coverArt.length > 0) { %>
       <% for(i=0; i < coverArt.length; i++) { %>
         <div class="item-covers">
-          <img src="/images/covers/<%=coverArt[i]%>" alt="<%=title[i]%>">
+          <a class="popup-modal" href="#test-modal">
+            <img src="/images/covers/<%=coverArt[i]%>" alt="<%=title[i]%>">
+          </a>
           <p><strong><%= title[i] %></strong></p>
+          <div id="test-modal" class="white-popup-block mfp-hide">
+            <h1><%= title[i] %></h1>
+            <img src="/images/covers/<%=coverArt[i]%>" alt="<%=title[i]%>">
+            <p><a class="popup-modal-dismiss" href="#">Close</a></p>
+          </div>
         </div>
         <% } %>
         <% } %>
@@ -36,7 +44,8 @@
       <h2>News:<h2>
     </div>
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <% include partials/footer.ejs %>
+    <script src="/js/jquery.magnific-popup.js"></script>
+    <script src="/js/modal.js"></script>
   </body>
 </html>

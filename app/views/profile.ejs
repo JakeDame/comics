@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comics - Profile</title>
+  <title>ComMix - Profile</title>
   <% include partials/head.ejs %>
 </head>
 <body>
@@ -51,8 +51,8 @@
             <option value="Zenescope Entertainment">Zenescope Entertainment</option>
           </select>
           <label>Ongoing:</label>
-          <input type="radio" name="ongoing" value="Yes"> Yes 
-          <input type="radio" name="ongoing" value="No"> No <br>
+          <input type="radio" name="ongoing" value=true> Yes 
+          <input type="radio" name="ongoing" value=false> No <br>
           <label>Writer:(Optional)</label>
           <input type="text" name="writer"><br>
           <label>Artist:(Optional)</label>
@@ -66,7 +66,7 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="well">
-        <h3><%= user.local.username %>'s Collection: </h3>
+        <h3><%= user.local.username %>'s Collection: </h3></hr>
         <div id="collection">
           <table>
             <thead>
@@ -80,6 +80,7 @@
               </tr>
             </thead>
             <tbody>
+            <!-- Data filled by global.js script -->
             </tbody>
           </table>
         </div>
@@ -90,8 +91,7 @@
 </div> <!-- end of container -->
 
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<% include partials/footer.ejs %>
 <script src="/js/global.js"></script>
 </body>
 </html>
