@@ -17,7 +17,7 @@ var collectionSchema = mongoose.Schema({
       artist    : String
       }
     }
-});
+}, {strict: false});
 
 //create the model for collections and expose it to our app
 module.exports = mongoose.model('collections', collectionSchema);

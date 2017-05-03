@@ -107,7 +107,7 @@ module.exports = function(app, passport) {
     var collection = require('./models/collection.js');
     collection.find({"owner" : req.user.local.username})
     .exec(function(err, coll){
-      if(err) res.send(500, { error: err});
+      if(err) res.status(500).send(err);
 
       //console.log(coll);
       res.json(coll);
@@ -151,9 +151,9 @@ module.exports = function(app, passport) {
                          "ongoing"   : ongoing,
                          "writer"    : writer,
                          "artist"    : artist 
-                        } } }, 
+                        } } }, {upsert:true}, 
       function (err, upd) {
-        if(err) res.send(500, { error: err});
+        if(err) res.status(500).send(err);
 
         console.log(upd);
         res.render('profile.ejs', {
