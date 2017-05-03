@@ -105,12 +105,11 @@ module.exports = function(app, passport) {
   display on collection page based off that query */
   app.get('/collection', function(req, res) {
     var collection = require('./models/collection.js');
-    collection.find({ "owner" : req.user.local.username})
-    //.populate('books')
+    collection.find({"owner" : req.user.local.username})
     .exec(function(e, docs){
       if (e) res.status(500).send(e);
 
-      console.log(docs);
+      //console.log(docs);
       res.json(docs);
     });
   });

@@ -28,21 +28,24 @@
           <img id="<%= i %>" data-toggle="modal" data-target="#myModal"
            src="/images/covers/<%=coverArt[i]%>" alt="<%=title[i]%>">
           <p><strong><%= title[i] %></strong></p>
+
           <div id="myModal" class="modal fade"> 
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-body">
-                  <img class="showimage img-responsive" src=""> 
-                  <h1 class="comic title"></h1>
+                  <img class="showimage img-responsive" src="">
+                  <div id="comicTitle">
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" 
                   data-dismiss="modal">Close</button>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              </div><!-- end modal-content -->
+            </div><!-- end modal-dialog -->
+          </div><!-- end myModal -->
+
+        </div> <!-- end item-covers -->
         <% } %>
         <% } %>
       </div>

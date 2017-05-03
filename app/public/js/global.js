@@ -1,5 +1,5 @@
 // Collection Data array for filling collection box
-var CollectionData = [];
+//var CollectionData = [];
 
 // DOM Ready 
 $(document).ready(function() {
@@ -19,17 +19,20 @@ function populateCollections() {
   // jQuery AJAX call for JSON
   $.getJSON( '/collection', function( data ) {
 
-  CollectionData = data;
-
+    var i = 0;
     $.each(data, function(){
-      tableContent += '<tr>';
-      tableContent += '<td>' + this.books + '</td>';
-      tableContent += '<td>' + this.books.issue + '</td>';
-      tableContent += '<td>' + this.books.publisher + '</td>';
-      tableContent += '<td>' + this.books.ongoing + '</td>';
-      tableContent += '<td>' + this.books.writer + '</td>';
-      tableContent += '<td>' + this.books.artist + '</td>';
-      tableContent += '</tr>';
+      while(typeof this.books[i] != "undefined")
+      {
+        tableContent += '<tr>';
+        tableContent += '<td>' + this.books[i].title + '</td>';
+        tableContent += '<td>' + this.books[i].issue + '</td>';
+        tableContent += '<td>' + this.books[i].publisher + '</td>';
+        tableContent += '<td>' + this.books[i].ongoing + '</td>';
+        tableContent += '<td>' + this.books[i].writer + '</td>';
+        tableContent += '<td>' + this.books[i].artist + '</td>';
+        tableContent += '</tr>';
+        i += 1;
+      }
     });
 
     // Inject the whole content string into table
