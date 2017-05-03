@@ -106,11 +106,59 @@ module.exports = function(app, passport) {
   app.get('/collection', function(req, res) {
     var collection = require('./models/collection.js');
     collection.find({"owner" : req.user.local.username})
-    .exec(function(e, docs){
-      if (e) res.status(500).send(e);
+    .exec(function(err, coll){
+      if(err) res.send(500, { error: err});
 
-      //console.log(docs);
-      res.json(docs);
+      //console.log(coll);
+      res.json(coll);
+    });
+  });
+  
+  ////////////////////////////
+  // Add book to Collection //
+  ////////////////////////////
+  app.post('/collection', function(req, res) {
+    // Get collection model
+    var collection = require('./models/collection.js');
+    var query = { "owner" : req.user.local.username };
+    // Get form values
+    var title = req.body.title;
+    var issueB = req.body.issueB;
+    var issueE = req.body.issueE;
+    var publisher = req.body.publisher;
+    var ongoing = req.body.ongoing;
+    var writer = req.body.writer;
+    var artist = req.body.artist;
+
+    /* Output for Debug 
+    console.log('owner: ' + req.user.local.username);
+    console.log('title: ' + title);
+    console.log('issueB: ' + issueB);
+    console.log('issueE: ' + issueE);
+    console.log('publisher: ' + publisher);
+    console.log('ongoing: ' + ongoing);
+    console.log('writer: ' + writer);
+    console.log('artist: ' + artist);
+    */
+    
+    // Update collection with new books
+    collection.update( query , 
+                     { $push   : {  
+                       "books" : {
+                         "title"     : title,
+                         "issue"     : issueB,
+                         "publisher" : publisher,
+                         "ongoing"   : ongoing,
+                         "writer"    : writer,
+                         "artist"    : artist 
+                        } } }, 
+      function (err, upd) {
+        if(err) res.send(500, { error: err});
+
+        console.log(upd);
+        res.render('profile.ejs', {
+          user : req.user // get the user out of session and pass to template
+        });
     });
   });
 
