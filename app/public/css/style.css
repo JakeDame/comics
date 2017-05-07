@@ -44,5 +44,8 @@ td, th {
   text-align: left;
   padding: 8px;
 }
-
+#myModal img {
+  height: 500px;
+  width: 350px;
+}
 

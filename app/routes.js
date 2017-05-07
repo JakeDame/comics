@@ -19,8 +19,18 @@ module.exports = function(app, passport) {
 
     //Data now in database, not json file, NEED to fix after users
     var data = req.app.get('comicData');
+    var userData = require('./models/collection.js');
     var pagePhotos = [];
     var comicTitles = [];
+
+    // Data necessary for Logged in index view
+    var userTitles = [];
+
+    var getUserTitles = function(username, callback) {
+      userData.findOne({"owner":username}).lean().exec(function(err, coll) {
+        callback(err, coll);
+      });
+    };
 
     data.find({'ReleaseDate': ReleaseDate}, function(err,data) {
       for(var i = 0; i < data.length; i++){
@@ -29,20 +39,29 @@ module.exports = function(app, passport) {
       }
 
       if(req.user){
-      res.render('indexLI', {
-        pageTitle: 'Home - logged in',
-        coverArt: pagePhotos,
-        title: comicTitles,
-        releaseDate: ReleaseDate,
-        pageID: 'home'
-      });
+        getUserTitles(req.user.local.username, function(err, coll) {
+          if(err) res.status(500).send(err);
+
+          for(var i = 0; i < coll.books.length; i++) {
+            userTitles = userTitles.concat(coll.books[i].title);
+          }
+
+          res.render('indexLI', {
+            pageTitle    : 'Home - logged in',
+            coverArt     : pagePhotos,
+            title        : comicTitles,
+            userTitle    : userTitles,
+            releaseDate  : ReleaseDate,
+            pageID       : 'home'
+          });
+        });
       } else {
       res.render('index', {
-        pageTitle: 'Home',
-        coverArt: pagePhotos,
-        title: comicTitles,
-        releaseDate: ReleaseDate,
-        pageID: 'home'
+        pageTitle    : 'Home',
+        coverArt     : pagePhotos,
+        title        : comicTitles,
+        releaseDate  : ReleaseDate,
+        pageID       : 'home'
       });
       }
     });
@@ -100,9 +119,6 @@ module.exports = function(app, passport) {
   ////////////////////////////
   // Gather Collection Data //
   ////////////////////////////
-  /* IDEAS: Collection has an owner, and books, search for the 
-  collection based off of owner user name. Books should be able to 
-  display on collection page based off that query */
   app.get('/collection', function(req, res) {
     var collection = require('./models/collection.js');
     collection.find({"owner" : req.user.local.username})
@@ -140,13 +156,22 @@ module.exports = function(app, passport) {
     console.log('writer: ' + writer);
     console.log('artist: ' + artist);
     */
-    
+    var issues;
+    if( issueB == issueE || issueE == 0) {
+      issues = "" + issueB;
+    }
+    else {
+      issues = "" + issueB + '-' + issueE;
+    }
+
+
+
     // Update collection with new books
     collection.update( query , 
                      { $push   : {  
                        "books" : {
                          "title"     : title,
-                         "issue"     : issueB,
+                         "issue"     : issues,
                          "publisher" : publisher,
                          "ongoing"   : ongoing,
                          "writer"    : writer,
@@ -155,11 +180,32 @@ module.exports = function(app, passport) {
       function (err, upd) {
         if(err) res.status(500).send(err);
 
-        console.log(upd);
+        //console.log(upd);
         res.render('profile.ejs', {
           user : req.user // get the user out of session and pass to template
         });
     });
+
+  });
+
+
+  //////////////////////////////////
+  // Remove Entry from Collection //
+  //////////////////////////////////
+  app.delete('/deleteEntry/:title', function(req, res) {
+    var collection = require('./models/collection.js');
+    var titleToDelete  = req.params.title;
+    var query = { "owner" : req.user.local.username };
+    collection.update( query, { $pull   : { 
+                                "books" : { 
+                                  "title" : titleToDelete} } },
+      function(err, upd) {
+        if(err) res.status(500).send(err);
+
+        res.render('profile.ejs', {
+          user : req.user 
+        });
+      });
   });
 
 };
