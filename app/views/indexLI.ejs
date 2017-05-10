@@ -58,9 +58,24 @@
         <% } %>
         <% } %>
       </div>
-      <div class="recommend">
-        <h2>Recommended Titles:</h2>
+
+      <div id="recommended">
+      <h2>Recommended Titles:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Publisher</th>
+              <th>Writer</th>
+              <th>Artist</th>
+            </tr>
+          </thead>
+          <tbody>
+          <!-- Data filled by recommend.js script -->
+          </tbody>
+        </table>
       </div>
+
     </div>
     <div class="col-sm-4" style="background-color: darkgrey">
       <h2>News:<h2>
@@ -115,5 +130,6 @@
 
     <% include partials/footer.ejs %>
     <script src="/js/modal.js"></script>
+    <script src="/js/recommend.js"></script>
   </body>
 </html>

@@ -19,7 +19,6 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connect(configDB.url);
 
 // Get the collection data from Mongodb
-// collection vars: Title, Publisher, ReleaseDate, Folder, Cover
 var Schema = mongoose.Schema;
 var comicData = mongoose.model('ComicBook', 
                 new Schema({ Title: String, Folder: String, ReleaseDate: String, Publisher: String, Cover: String }), 
@@ -39,6 +38,7 @@ app.set('views', 'app/views');
 
 //Used to give data to views and routes
 app.set('comicData', comicData);
+//app.set('collectionData', collectionData);
 
 //required for passport
 app.use(session({ secret: 'shenanigans',
