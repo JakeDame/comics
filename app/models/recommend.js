@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
-var recommendSchema = mongoose.Schema({
+var recommendedSchema = mongoose.Schema({
 
   // currently only care about local
-  recommendedTitles : {
+  recommended : {
     _id             : ObjectId,
     owner           : String,
     lastUpdated     : String, 
@@ -20,4 +20,4 @@ var recommendSchema = mongoose.Schema({
 }, {strict: false});
 
 //create the model for collections and expose it to our app
-module.exports = mongoose.model('recommendedTitles', recommendSchema);
+module.exports = mongoose.model('recommended', recommendedSchema);
