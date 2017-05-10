@@ -66,29 +66,6 @@ module.exports = function(app, passport) {
               pubArray.push(coll.books[i].publisher);
           }
 
-/* Works but is too slow, implement in a script?
-        for(var i = 0; i < userArray.length; i++) {
-          for(var j = 0; j < pubArray.length; j++) {
-            getUserTitles(userArray[i], function(err,coll) {
-              if(err) res.status(500).send(err);
-
-              //console.log(coll);
-              for(var k = 0; k < coll.books.length; k++){
-                if(coll.books[k].publisher == pubArray[j]){
-                  userPubArray[k] += 1;
-                }
-              }
-              if((userPubArray[j]/coll.books.length) >= 0.25)
-              {
-                console.log("TRUE");
-              }
-            });
-          }
-        }
-*/
-
-
-
           // Render logged in index page
           res.render('indexLI', {
             pageTitle    : 'Home - logged in',
@@ -177,14 +154,16 @@ module.exports = function(app, passport) {
   });
 
   /////////////////////////
-  // Get All Collections //
+  // Get Recommendations //
   /////////////////////////
-  app.get('/allCollections', function(req, res) {
-    var collection = require('./models/collection.js');
-    collection.find()
+  app.get('/recommendations', function(req, res) {
+    //var collection = require('./models/recommend.js');
+    var data = req.app.get('recommendedData');
+    data.find({"owner" : req.user.local.username})
     .exec(function(err, coll){
       if(err) res.status(500).send(err);
 
+      //console.log(coll);
       res.json(coll);
     });
   });

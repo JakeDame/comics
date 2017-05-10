@@ -4,12 +4,11 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 var recommendedSchema = mongoose.Schema({
 
   // currently only care about local
-  recommended : {
+  recommended       : {
     _id             : ObjectId,
     owner           : String,
     lastUpdated     : String, 
-    recBooks        : {
-      _id           : ObjectId,
+    books           : {
       title         : String,
       publisher     : String,
       ongoing       : Boolean,

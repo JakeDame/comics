@@ -24,6 +24,12 @@ var comicData = mongoose.model('ComicBook',
                 new Schema({ Title: String, Folder: String, ReleaseDate: String, Publisher: String, Cover: String }), 
                 'comicBooks');
 
+var recommendedData = mongoose.model('recommendedTitle', 
+                      new Schema({ owner: String, lastUpdated: String,
+                      books : { title: String, publisher: String, 
+                                ongoing: Boolean, writer: String, 
+                                artist: String} }), 'recommended');
+
 require('./config/passport')(passport); //pass passport for configuration
 
 // set up express app
@@ -38,6 +44,7 @@ app.set('views', 'app/views');
 
 //Used to give data to views and routes
 app.set('comicData', comicData);
+app.set('recommendedData', recommendedData);
 //app.set('collectionData', collectionData);
 
 //required for passport
