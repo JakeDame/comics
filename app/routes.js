@@ -247,6 +247,17 @@ module.exports = function(app, passport) {
       });
   });
 
+  ////////////////////
+  // Message Boards //
+  ////////////////////
+  app.get('/messageBoards', isLoggedIn, function(req,res) {
+    var topics = require('./models/topic.js');
+
+    res.render('messageBoards.ejs', {
+      user : req.user
+    });
+  });
+
 };
 
 function isLoggedIn(req, res, next) {
