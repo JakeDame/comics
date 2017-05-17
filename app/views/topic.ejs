@@ -20,9 +20,14 @@
         <h3><%= topicBody %></h3>
       </div> <!-- end well -->
 
-    <% if (topicComments > 0) { %>
+    <% if (topicComments.length > 0) { %>
     <% for(i=0; i < topicComments.length; i++) { %>
       <div class ="well">
+        <p>
+          <%= topicComments[i] %> <br><br>
+          <strong>Posted By</strong>: <%= commentAuthor[i] %>
+          <strong>Posted</strong>: <%= commentPosted[i] %>
+        </p>
       </div> <!-- end well -->
     <% } %>
     <% } %>

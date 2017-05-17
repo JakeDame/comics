@@ -281,12 +281,20 @@ module.exports = function(app, passport) {
     var topicTitle;
     var topicBody;
     var topicComments = [];
+    var commentAuthor = [];
+    var commentPosted = [];
 
 
     topics.findOne( { "_id" : id } ).exec(function(err, topic) {
       topicTitle = topic.toObject().postTitle;
       topicBody = topic.toObject().postBody;
-
+      if(typeof topic.toObject().comments != "undefined") {
+        topic.toObject().comments.forEach(function(com) {
+          topicComments = topicComments.concat(com.commentBody);
+          commentAuthor = commentAuthor.concat(com.commentAuthor);
+          commentPosted = commentPosted.concat(com.commentPosted);
+        });
+      }
 
       res.render('topic.ejs', {
         pageTitle     : 'Topic',
@@ -295,6 +303,8 @@ module.exports = function(app, passport) {
         topicTitle    : topicTitle,
         topicBody     : topicBody,
         topicComments : topicComments,
+        commentAuthor : commentAuthor,
+        commentPosted : commentPosted,
         user          : req.user
       });
     });
