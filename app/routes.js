@@ -27,9 +27,6 @@ module.exports = function(app, passport) {
 
     // Data necessary for Logged in index view
     var userTitles = [];
-    var userArray = [];
-    var pubArray = [];
-    var userPubArray = [];
 
     // Function to get collection data based on user
     var getUserTitles = function(username, callback) {
@@ -47,14 +44,6 @@ module.exports = function(app, passport) {
 
       if(req.user){
 
-        // Fill userArray
-        users.find().exec(function(err, data) {
-          for(var i = 0; i < data.length; i++) {
-            userArray.push(data[i].local.username);
-          }
-          //console.log("users: " + userArray.length);
-        });
-
 
         // Use data returned from function to fill userTitles array
         getUserTitles(req.user.local.username, function(err, coll) {
@@ -62,8 +51,6 @@ module.exports = function(app, passport) {
 
           for(var i = 0; i < coll.books.length; i++) {
             userTitles = userTitles.concat(coll.books[i].title);
-            if(!pubArray.includes(coll.books[i].publisher))
-              pubArray.push(coll.books[i].publisher);
           }
 
           // Render logged in index page
@@ -94,7 +81,11 @@ module.exports = function(app, passport) {
   // Login //
   ///////////
   app.get('/login', function(req, res) {
-    res.render('login.ejs', {message: req.flash('loginMessage') });
+    res.render('login.ejs', {
+      pageTitle : 'Login',
+      pageID    : 'login',
+      message: req.flash('loginMessage') 
+    });
   });
 
   //process the login form
@@ -109,7 +100,11 @@ module.exports = function(app, passport) {
   // Signup //
   ////////////
   app.get('/signup', function(req, res) {
-    res.render('signup.ejs', { message: req.flash('signupMessage') });
+    res.render('signup.ejs', {
+      pageTitle : 'Signup',
+      pageID    : 'signup',
+      message: req.flash('signupMessage') 
+    });
   });
 
   /////////////////////////////
@@ -127,7 +122,9 @@ module.exports = function(app, passport) {
   /////////////
   app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile.ejs', {
-      user : req.user // get the user out of session and pass to template
+      pageTitle : 'Profile',
+      pageID    : 'profile',
+      user      : req.user // get the user out of session and pass to template
     });
   });
 
@@ -218,11 +215,9 @@ module.exports = function(app, passport) {
                         } } }, {upsert:true}, 
       function (err, upd) {
         if(err) res.status(500).send(err);
-
-        //console.log(upd);
-        res.render('profile.ejs', {
-          user : req.user // get the user out of session and pass to template
-        });
+        else{
+          res.redirect('/profile');
+        }
     });
 
   });
@@ -240,10 +235,9 @@ module.exports = function(app, passport) {
                                   "title" : titleToDelete} } },
       function(err, upd) {
         if(err) res.status(500).send(err);
-
-        res.render('profile.ejs', {
-          user : req.user 
-        });
+        else{
+          res.redirect('/profile');
+        }
       });
   });
 
@@ -252,10 +246,111 @@ module.exports = function(app, passport) {
   ////////////////////
   app.get('/messageBoards', isLoggedIn, function(req,res) {
     var topics = require('./models/topic.js');
+    var topicTitles = [];
+    var topicAuthors = [];
+    var topicPosted = [];
+    var topicIds = [];
 
-    res.render('messageBoards.ejs', {
-      user : req.user
+    //Get the Title, Author, and Post time for all Topics
+    topics.find({}, function(err, topic) {
+      topic.forEach(function(topic) {
+        topicTitles = topicTitles.concat(topic.toObject().postTitle);
+        topicAuthors = topicAuthors.concat(topic.toObject().postAuthor);
+        topicPosted = topicPosted.concat(topic.toObject().postPosted);
+        topicIds = topicIds.concat(topic.toObject()._id);
+      });
+
+      res.render('messageBoards.ejs', {
+        pageTitle    : 'Message Boards',
+        pageID       : 'messageBoards',
+        topicTitles  : topicTitles,
+        topicAuthors : topicAuthors,
+        topicPosted  : topicPosted,
+        topicIds     : topicIds,
+        user         : req.user
+      });
     });
+  });
+
+  /////////////////////////
+  // Message Board Topic //
+  /////////////////////////
+  app.get('/messageBoards/:topicId', isLoggedIn, function(req,res) {
+    var topics = require('./models/topic.js');
+    var id = req.params.topicId;
+    var topicTitle;
+    var topicBody;
+    var topicComments = [];
+
+
+    topics.findOne( { "_id" : id } ).exec(function(err, topic) {
+      topicTitle = topic.toObject().postTitle;
+      topicBody = topic.toObject().postBody;
+
+
+      res.render('topic.ejs', {
+        pageTitle     : 'Topic',
+        pageID        : 'topic',
+        topicId       : id,
+        topicTitle    : topicTitle,
+        topicBody     : topicBody,
+        topicComments : topicComments,
+        user          : req.user
+      });
+    });
+  });
+
+  ////////////////////////////////////
+  // Post a Topic to Message Boards //
+  ////////////////////////////////////
+  app.post('/postTopic', function(req, res) {
+    var Topic = require('./models/topic.js');
+    var author = req.user.local.username;
+    var title = req.body.title;
+    var body = req.body.body;
+    var d = new Date();
+
+    var Post = new Topic({
+        "postTitle": title, 
+        "postBody": body, 
+        "postAuthor": author,
+        "postPosted": d.toLocaleString()
+    });
+
+    Post.save(function(err) {
+      if(err) res.status(500).send(err);
+      else {
+        res.redirect('/messageBoards');
+      }
+    });
+
+  });
+
+  //////////////////////////////////////
+  // Post a Comment to Message Boards //
+  //////////////////////////////////////
+  app.post('/postComment', function(req, res) {
+    var Topic = require('./models/topic.js');
+    var author = req.user.local.username;
+    var body = req.body.body;
+    var d = new Date();
+    var id = req.body.topicId;
+    var query = { "_id" : id };
+    console.log(req.body);
+
+    Topic.update( query , 
+                { $push             : {  
+                  "comments"        : {
+                    "commentBody"   : body,
+                    "commentAuthor" : author, 
+                    "commentPosted" : d.toLocaleString()
+                } } }, {upsert:true}, 
+      function (err, upd) {
+        if(err) res.status(500).send(err);
+        else {
+          res.redirect(req.get('referer'));
+        }
+      });
   });
 
 };

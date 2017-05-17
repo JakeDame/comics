@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ComMix - Message Boards</title>
   <% include partials/head.ejs %>
 </head>
-<body>
+<body id="<%= pageID %>">
 
   <header>
   <% include partials/headerLI.ejs %>
@@ -16,12 +15,56 @@
     <h1><span class="fa fa-anchor"></span> Message Boards</h1>
   </div>
 
-  <div class="Topics">
+  <div class="topics">
+    <button type="button" data-toggle="modal" data-target="#myModal">Post New Topic</button><br><br>
+
+    <div id="myModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Post a new Topic:</h4>
+          </div><!--end modal-header -->
+          <div class="modal-body">
+            <form action="/postTopic" id="topicForm" method="post">
+              <label>Post Title:</label>
+              <input type="text" name="title"><br>
+            </form>
+            <br><textarea rows="4" cols="75" name="body" form="topicForm"></textarea>
+          </div><!--end modal-body -->
+          <div class ="modal-footer">
+            <button type="submit" form="topicForm" class="btn btn-default"
+            value="Submit">Post</button>
+            <button type="button" class="btn btn-default" 
+            data-dismiss="modal">Close</button>
+          </div><!--end modal-footer -->
+        </div><!--end modal-content -->
+      </div><!--end modal-dialog -->
+    </div><!--end myModal -->
+
+    <div class="row">
+      <!-- Gets created with every topic on the page -->
+      <% if (topicTitles.length > 0) { %>
+      <% for(i=0; i < topicTitles.length; i++) { %>
+      
+      <div class="well well-sm">
+        <!-- Need to add topicIds[i] in here for linking -->
+        <a href="/messageBoards/<%=topicIds[i]%>" style="font-size: 30px; text-decoration: none"><%= topicTitles[i] %></a>
+          <p>
+            <strong>Posted By</strong>: <%= topicAuthors[i] %><br>
+            <strong>Posted</strong>: <%= topicPosted[i] %>
+          </p>
+      </div> <!-- end well -->
+      <% } %>
+      <% } %>
+      <!-- end -->
+
+    </div> <!-- end row -->
   </div>
   
-</div> <!-- end of container -->
+</div> <!-- end container -->
 
 
 <% include partials/footer.ejs %>
+<script src="/js/modal.js"></script>
 </body>
 </html>

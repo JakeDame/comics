@@ -3,18 +3,17 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var topicSchema = mongoose.Schema({
 
-  // currently only care about local
-  topic         : {
-    _id         : ObjectId,
-    title       : String,
-    body        : String,
-    author      : String,
-    posted      : Date,
-    comments    : {
-      _id       : ObjectId,
-      body      : String,
-      author    : String,
-      posted    : Date
+  topic             : {
+    _id             : ObjectId,
+    postTitle       : String,
+    postBody        : String,
+    postAuthor      : String,
+    postPosted      : Date,
+    comments        : {
+      _id           : ObjectId,
+      commentBody   : String,
+      commentAuthor : String,
+      commentPosted : Date
     }
   }
 }, {strict: false});

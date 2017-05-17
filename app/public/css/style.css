@@ -1,7 +1,11 @@
-body{
-  text-align: center;
+body {
   background-color: lightgrey;
   padding-top: 50px;
+}
+
+/* Home page Specific */
+#home{
+  text-align: center;
 }
 .content {
   padding: 40px 15px;
@@ -13,7 +17,7 @@ img {
   height: 300px;
   width: 200px;
 }
-.row{
+#home[.row]{
   text-align: center;
 }
 .container-covers{
@@ -29,12 +33,22 @@ img {
   flex-grow: 5;
   align-self: auto;
 }
+/* End home page */
+
+
+/* Profile Page */
+#profile {
+  text-align: center;
+}
 .issue-form {
   width: 10%;
 }
 .book-submission {
   text-align: left;
 }
+/* End Profile Page */
+
+/* Universal CSS */
 table {
   border-collapse: collapse;
   width: 100%;
@@ -48,4 +62,11 @@ td, th {
   height: 500px;
   width: 350px;
 }
+/* End Universal CSS */
 
+/* Message Board CSS */
+#messageBoards{
+  text-align: left;
+}
+
+/* End Message Board CSS */
