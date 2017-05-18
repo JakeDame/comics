@@ -40,7 +40,7 @@ app.use(bodyParser.json()); /// get information from html forms
 
 app.set('port', process.env.PORT || 3000); //set port and default port
 app.set('view engine', 'ejs');
-app.set('views', 'app/views');
+app.set('views', __dirname + '/../app/views');
 
 //Used to give data to views and routes
 app.set('comicData', comicData);
@@ -55,7 +55,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); //use connect-flash for flash messages stored in session
 
-app.use(express.static('app/public'));
+app.use(express.static(__dirname + '/../app/public'));
 
 //routes
 require('./routes.js')(app, passport); 
